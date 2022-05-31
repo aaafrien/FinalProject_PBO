@@ -26,8 +26,8 @@ public class MainMenu_Controller {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 LoginUser_View loginUser_View = new LoginUser_View();
-                LoginUser_Controller loginUser_Controller = new LoginUser_Controller(rent_Model, loginUser_View);
                 mainMenu_View.dispose();
+                LoginUser_Controller loginUser_Controller = new LoginUser_Controller(rent_Model, loginUser_View);
             }
         });
         
@@ -35,8 +35,8 @@ public class MainMenu_Controller {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 LoginAdmin_View loginAdmin_View = new LoginAdmin_View();
-                LoginAdmin_Controller loginAdmin_Controller = new LoginAdmin_Controller(rent_Model, loginAdmin_View);
                 mainMenu_View.dispose();
+                LoginAdmin_Controller loginAdmin_Controller = new LoginAdmin_Controller(rent_Model, loginAdmin_View);
             }
         });
     }   

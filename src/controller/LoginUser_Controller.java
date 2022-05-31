@@ -29,28 +29,43 @@ public class LoginUser_Controller {
             public void actionPerformed(ActionEvent arg0) {
                 String username = loginUser_View.getUname();
                 String password = loginUser_View.getPassword();
-                rent_Model.LoginUser(username, password);
-                Dashboard_View dashboard_View = new Dashboard_View();
-                Dashboard_Controller dashboard_Controller = new Dashboard_Controller(rent_Model, dashboard_View);
-                loginUser_View.dispose();
+                if(username.isEmpty() || password.isEmpty()) {
+                    rent_Model.LoginUser(username, password);
+                    loginUser_View.dispose();
+                    loginUser_View.setVisible(true);
+                } else {
+                    rent_Model.LoginUser(username, password);
+                    loginUser_View.dispose();
+                    DashboardUser_View dashboard_View = new DashboardUser_View();
+                    DashboardUser_Controller dashboard_Controller = new DashboardUser_Controller(rent_Model, dashboard_View);
+                }
             }
         });
         
         loginUser_View.btCancel().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
+                loginUser_View.dispose();
                 MainMenu_View mainMenu_View = new MainMenu_View();
                 MainMenu_Controller mainMenu_Controller = new MainMenu_Controller(rent_Model, mainMenu_View);
-                loginUser_View.dispose();
             }
         });
         
         loginUser_View.lbRegist().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                loginUser_View.dispose();
                 RegisterUser_View registerUser_View = new RegisterUser_View();
                 RegisterUser_Controller registerUser_Controller = new RegisterUser_Controller(rent_Model, registerUser_View);
+            }
+        });
+        
+        loginUser_View.lbLoginAdmin().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
                 loginUser_View.dispose();
+                LoginAdmin_View loginAdmin_View = new LoginAdmin_View();
+                LoginAdmin_Controller loginAdmin_Controller = new LoginAdmin_Controller(rent_Model, loginAdmin_View);
             }
         });
     }

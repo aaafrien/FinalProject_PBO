@@ -72,7 +72,7 @@ public class Rent_Model {
             } else {
                 String query = "INSERT INTO `user`(`username`,`password`, `no_hp`)" + "VALUES('" + uname + "','" + pw + "','" + no_hp + "')";
                 stat = conn.createStatement();
-                stat.executeQuery(query);
+                stat.executeUpdate(query);
                 
                 JOptionPane.showMessageDialog(null, "Register success!");
             }
@@ -89,7 +89,7 @@ public class Rent_Model {
             } else {
                 String query = "INSERT INTO `admin`(`username`,`password`, `no_hp`)" + "VALUES('" + uname + "','" + pw + "','" + no_hp + "')";
                 stat = conn.createStatement();
-                stat.executeQuery(query);
+                stat.executeUpdate(query);
                 
                 JOptionPane.showMessageDialog(null, "Register success!");
             }
@@ -162,8 +162,6 @@ public class Rent_Model {
     public void updateMobil(String merk, String plat, String harga, String id) {
         try {
             String query = "UPDATE `mobil` SET "
-                    + "`merk`='" + merk + "',"
-                    + "`plat`=" + plat + ","
                     + "`harga_sewa`=" + harga 
                     + " WHERE id=" + id;
             
@@ -178,8 +176,6 @@ public class Rent_Model {
     public void updateMotor(String merk, String plat, String harga, String id) {
         try {
             String query = "UPDATE `motor` SET "
-                    + "`merk`='" + merk + "',"
-                    + "`plat`=" + plat + ","
                     + "`harga_sewa`=" + harga 
                     + " WHERE id=" + id;
             
@@ -198,7 +194,13 @@ public class Rent_Model {
             
             stat = conn.createStatement();
             stat.executeUpdate(query);
+            
             JOptionPane.showMessageDialog(null, "Mobil berhasil disewa");
+            
+            String delete = "DELETE FROM `mobil` WHERE `id`=" + id;
+            
+            stat = conn.createStatement();
+            stat.executeUpdate(delete);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Mobil gagal disewa");
         }
@@ -212,6 +214,11 @@ public class Rent_Model {
             stat = conn.createStatement();
             stat.executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Motor berhasil disewa");
+            
+            String delete = "DELETE FROM `motor` WHERE `id`=" + id;
+            
+            stat = conn.createStatement();
+            stat.executeUpdate(delete);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Motor gagal disewa");
         }

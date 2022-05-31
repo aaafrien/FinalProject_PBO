@@ -5,21 +5,21 @@
  */
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import model.Rent_Model;
-import view.RegisterAdmin_View;
+import view.*;
 
 /**
  *
  * @author Afrien
  */
-public class RegisterAdmin_Controller {
+public class DashboardUser_Controller {
     Rent_Model rent_Model;
-    RegisterAdmin_View registerAdmin_View;
+    DashboardUser_View dashboardUser_View;
 
-    public RegisterAdmin_Controller(Rent_Model rent_Model, RegisterAdmin_View registerAdmin_View) {
+    public DashboardUser_Controller(Rent_Model rent_Model, DashboardUser_View dashboardUser_View) {
         this.rent_Model = rent_Model;
-        this.registerAdmin_View = registerAdmin_View;
+        this.dashboardUser_View = dashboardUser_View;
     }
-    
-    
 }

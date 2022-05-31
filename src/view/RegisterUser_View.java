@@ -240,19 +240,27 @@ public class RegisterUser_View extends javax.swing.JFrame {
     private javax.swing.JTextField tfUname;
     // End of variables declaration//GEN-END:variables
 
-    public JButton btRegist() {
-        return btRegist;
-    }
-
     public String getUname() {
         return tfUname.getText();
     }
 
-    public String getPw() {
-        return pfPw.getPassword().toString();
+    public String getPassword() {
+        return pfPw.getText().toString();
     }
 
     public String getNohp() {
         return tfNohp.getText();
+    }
+    
+    public JButton btRegist() {
+        return btRegist;
+    }
+    
+    public JButton btCancel() {
+        return btCancel;
+    }
+    
+    public JLabel lbLogin() {
+        return lbLogin;
     }
 }

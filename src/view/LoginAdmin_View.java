@@ -32,7 +32,6 @@ public class LoginAdmin_View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbLoginUser = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,12 +41,9 @@ public class LoginAdmin_View extends javax.swing.JFrame {
         pfPw = new javax.swing.JPasswordField();
         btCancel = new javax.swing.JButton();
         btLogin = new javax.swing.JButton();
-        lbRegist = new javax.swing.JLabel();
+        lbLoginUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lbLoginUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        lbLoginUser.setText("or Login as User");
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -90,8 +86,8 @@ public class LoginAdmin_View extends javax.swing.JFrame {
             }
         });
 
-        lbRegist.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        lbRegist.setText("Create account");
+        lbLoginUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        lbLoginUser.setText("or Login as User");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,7 +98,6 @@ public class LoginAdmin_View extends javax.swing.JFrame {
                 .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbLoginUser)
-                    .addComponent(lbRegist)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,10 +137,8 @@ public class LoginAdmin_View extends javax.swing.JFrame {
                     .addComponent(btLogin)
                     .addComponent(btCancel))
                 .addGap(18, 18, 18)
-                .addComponent(lbRegist)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbLoginUser)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,28 +201,27 @@ public class LoginAdmin_View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lbLoginUser;
-    private javax.swing.JLabel lbRegist;
     private javax.swing.JPasswordField pfPw;
     private javax.swing.JTextField tfUname;
     // End of variables declaration//GEN-END:variables
 
+    public String getUname() {
+        return tfUname.getText();
+    }
+
+    public String getPassword() {
+        return pfPw.getText().toString();
+    }
+    
     public JButton btLogin() {
-        return btLogin();
+        return btLogin;
     }
     
     public JButton btCancel() {
         return btCancel;
     }
 
-    public String getUname() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String getPassword() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Object lbRegist() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JLabel lbLoginUser() {
+        return lbLoginUser;
     }
 }

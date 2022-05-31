@@ -242,4 +242,8 @@ public class LoginUser_View extends JFrame {
     public JLabel lbRegist() {
         return lbRegist;
     }
+    
+    public JLabel lbLoginAdmin() {
+        return lbLoginAdmin;
+    }
 }

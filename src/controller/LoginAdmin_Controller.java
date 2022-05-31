@@ -29,10 +29,16 @@ public class LoginAdmin_Controller {
             public void actionPerformed(ActionEvent arg0) {
                 String username = loginAdmin_View.getUname();
                 String password = loginAdmin_View.getPassword();
-                rent_Model.LoginAdmin(username, password);
-                Dashboard_View dashboard_View = new Dashboard_View();
-                Dashboard_Controller dashboard_Controller = new Dashboard_Controller(rent_Model, dashboard_View);
-                loginAdmin_View.dispose();
+                if(username.isEmpty() || password.isEmpty()) {
+                    rent_Model.LoginAdmin(username, password);
+                    loginAdmin_View.dispose();
+                    loginAdmin_View.setVisible(true);
+                } else {
+                    rent_Model.LoginAdmin(username, password);
+                    loginAdmin_View.dispose();
+//                    DashboardAdmin_View dashboard_View = new DashboardAdmin_View();
+//                    DashboardAdmin_Controller dashboardAmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
+                }
             }
         });
         
@@ -45,15 +51,13 @@ public class LoginAdmin_Controller {
             }
         });
         
-        loginAdmin_View.lbRegist().addMouseListener(new MouseAdapter() {
+        loginAdmin_View.lbLoginUser().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                RegisterAdmin_View registerAdmin_View = new RegisterAdmin_View();
-                
+                LoginUser_View LoginUser_View = new LoginUser_View();
+                LoginUser_Controller loginUser_Controller = new LoginUser_Controller(rent_Model, LoginUser_View);
                 loginAdmin_View.dispose();
             }
         });
     }
-    
-    
 }
