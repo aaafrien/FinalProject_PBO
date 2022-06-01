@@ -18,6 +18,8 @@ public class InputKendaraan_View extends javax.swing.JFrame {
      */
     public InputKendaraan_View() {
         initComponents();
+        setTitle("Input Kendaraan");
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -37,7 +39,8 @@ public class InputKendaraan_View extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         fMerk = new javax.swing.JTextField();
         fPlat = new javax.swing.JTextField();
-        btnAdd = new javax.swing.JButton();
+        btnAddMotor = new javax.swing.JButton();
+        btnAddMobil = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,13 +49,25 @@ public class InputKendaraan_View extends javax.swing.JFrame {
 
         jLabel2.setText("Merk");
 
-        jLabel3.setText("MOTOR");
+        jLabel3.setText("INPUT MOTOR/MOBIL");
 
         jLabel4.setText("Plat");
 
-        btnAdd.setText("Add");
+        btnAddMotor.setText("Input Motor");
+
+        btnAddMobil.setText("Input Mobil");
+        btnAddMobil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddMobilActionPerformed(evt);
+            }
+        });
 
         btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,7 +78,6 @@ public class InputKendaraan_View extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -74,8 +88,11 @@ public class InputKendaraan_View extends javax.swing.JFrame {
                                 .addComponent(fHarga)
                                 .addComponent(fMerk)
                                 .addComponent(fPlat, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAddMobil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddMotor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnReset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +112,9 @@ public class InputKendaraan_View extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(fHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnAdd)
+                .addComponent(btnAddMotor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAddMobil)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnReset)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -103,6 +122,14 @@ public class InputKendaraan_View extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddMobilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMobilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddMobilActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,7 +167,8 @@ public class InputKendaraan_View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAddMobil;
+    private javax.swing.JButton btnAddMotor;
     private javax.swing.JButton btnReset;
     private javax.swing.JTextField fHarga;
     private javax.swing.JTextField fMerk;
@@ -151,23 +179,40 @@ public class InputKendaraan_View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 
-    public JButton btnAdd(){
-        return btnAdd;
+    public JButton btnAddMotor(){
+        return btnAddMotor;
+    }
+    
+    public JButton btnAddMobil(){
+        return btnAddMobil;
     }
     
     public JButton btnReset(){
         return btnReset;
     }
     
-    public JTextField fHarga(){
-        return fHarga;
+    public int getHarga(){
+        int harga = Integer. parseInt(fHarga.getText());
+        return harga;
     }
     
-    public JTextField fMerk(){
-        return fMerk;
+    public String getMerk(){
+        return fMerk.getText();
     }
     
-    public JTextField fPlat(){
-        return fPlat;
+    public String getPlat(){
+        return fPlat.getText();
+    }
+    
+    public void setMerk(){
+        fMerk.setText("");
+    }
+    
+    public void setPlat(){
+        fPlat.setText("");
+    }
+    
+    public void setHarga(){
+        fHarga.setText("");
     }
 }
