@@ -297,4 +297,36 @@ public class Rent_Model {
             JOptionPane.showMessageDialog(null, "Motor gagal disewa");
         }
     }
+    
+    public int getDetailMobil(String merk, String plat, String harga, String id){
+        int jmlData = 0;
+        try {
+            String query = "SELECT * FROM `mobil` WHERE `id_mobil`='" + id + "'";
+            stat = conn.createStatement();
+            ResultSet resultSet = stat.executeQuery(query);
+            
+            while (resultSet.next()){ 
+                jmlData++;
+            }
+            return jmlData;
+        } catch(Exception ex){
+            return 0;
+        }
+    }
+    
+    public int getDetailMotor(String merk, String plat, String harga, String id){
+        int jmlData = 0;
+        try {
+            String query = "SELECT * FROM `motor` WHERE `id_motor`='" + id + "'";
+            stat = conn.createStatement();
+            ResultSet resultSet = stat.executeQuery(query);
+            
+            while (resultSet.next()){ 
+                jmlData++;
+            }
+            return jmlData;
+        } catch(Exception ex){
+            return 0;
+        }
+    }
 }
