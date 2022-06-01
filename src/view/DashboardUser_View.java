@@ -173,7 +173,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
     private javax.swing.JTable tableMobil;
     private javax.swing.JTable tableMotor;
     // End of variables declaration//GEN-END:variables
-
+    
     public JTable tableMotor(){
         return tableMotor;
     }

@@ -282,14 +282,14 @@ public class Rent_Model {
     
     public void sewaMotor(String merk, String plat, String tgl_sewa, String tgl_kembali, String id) {
         try {
-            String query = "INSERT INTO `motor_disewa` (`merk`, `plat`, `tanggal_sewa`, `tanggal_kembali`)" +
-                            "VALUES ('" + merk + "', " + plat + "," + tgl_sewa + "," + tgl_kembali +") WHERE `id`=" + id;
+            String query = "INSERT INTO `motor_sewa` (`merk`, `plat`, `tanggal_sewa`, `tanggal_kembali`)" +
+                            "VALUES ('" + merk + "', " + plat + "," + tgl_sewa + "," + tgl_kembali;
             
             stat = conn.createStatement();
             stat.executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Motor berhasil disewa");
             
-            String delete = "DELETE FROM `motor` WHERE `id`=" + id;
+            String delete = "DELETE FROM `motor` WHERE `id_motor`=" + id;
             
             stat = conn.createStatement();
             stat.executeUpdate(delete);

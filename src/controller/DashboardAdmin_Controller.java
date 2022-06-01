@@ -40,6 +40,7 @@ public class DashboardAdmin_Controller {
         dashboardAdmin_View.tableMotor().addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
+                
                 int baris = dashboardAdmin_View.tableMotor().getSelectedRow();
                 String selected = dashboardAdmin_View.tableMotor().getValueAt(baris, 0).toString();
                 UpdateMotor_View update = new UpdateMotor_View();

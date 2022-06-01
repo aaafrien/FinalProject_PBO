@@ -7,7 +7,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
 import model.Rent_Model;
 import view.DashboardUser_View;
 import view.DetailPinjam_View;
@@ -16,11 +16,11 @@ import view.DetailPinjam_View;
  *
  * @author Afrien
  */
-public class PinjamMobil_Controller {
+public class PinjamMotor_Controller {
     Rent_Model rent_Model;
     DetailPinjam_View detailPinjam_View;
 
-    public PinjamMobil_Controller(Rent_Model rent_Model, DetailPinjam_View detailPinjam_View) {
+    public PinjamMotor_Controller(Rent_Model rent_Model, DetailPinjam_View detailPinjam_View) {
         this.rent_Model = rent_Model;
         this.detailPinjam_View = detailPinjam_View;
         
@@ -28,12 +28,15 @@ public class PinjamMobil_Controller {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 String id = detailPinjam_View.getId();
-                String merk = detailPinjam_View.lbMerk().toString();
-                String plat = detailPinjam_View.lbPlat().toString();
+                String merk = detailPinjam_View.lbMerk().getText();
+                System.out.println(merk);
+                String plat = detailPinjam_View.lbPlat().getText();
+                System.out.println(plat);
                 String tgl_sewa = detailPinjam_View.tglSewa();
-                String tgl_kembali = detailPinjam_View.tglKembali();
                 System.out.println(tgl_sewa);
-                rent_Model.sewaMobil(merk, plat, tgl_sewa, tgl_kembali, id);
+                String tgl_kembali = detailPinjam_View.tglKembali();
+                System.out.println(tgl_kembali);
+                rent_Model.sewaMotor(merk, plat, tgl_sewa, tgl_kembali, id);
                 detailPinjam_View.dispose();
                 DashboardUser_View dashboardUser_View = new DashboardUser_View();
                 DashboardUser_Controller dashboard_Controller = new DashboardUser_Controller(rent_Model, dashboardUser_View);
