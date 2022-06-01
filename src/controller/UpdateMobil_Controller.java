@@ -14,11 +14,11 @@ import view.*;
  *
  * @author user
  */
-public class UpdateMotor_Controller {
+public class UpdateMobil_Controller {
     Rent_Model rent_Model;
     UpdateKendaraan_View updateKendaraan_View;
 
-    public UpdateMotor_Controller(Rent_Model rent_Model, UpdateKendaraan_View updateKendaraan_View) {
+    public UpdateMobil_Controller(Rent_Model rent_Model, UpdateKendaraan_View updateKendaraan_View) {
         this.rent_Model = rent_Model;
         this.updateKendaraan_View = updateKendaraan_View;
         
@@ -30,7 +30,7 @@ public class UpdateMotor_Controller {
                 String plat = updateKendaraan_View.fPlat().toString();
                 int harga = updateKendaraan_View.getHarga();
                 System.out.println(harga);
-                rent_Model.updateMotor(merk, plat, harga, id);
+                rent_Model.updateMobil(merk, plat, harga, id);
                 updateKendaraan_View.dispose();
                 DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
                 DashboardAdmin_Controller dashboardAdmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
@@ -38,6 +38,4 @@ public class UpdateMotor_Controller {
         });
         
     }
-    
-    
 }

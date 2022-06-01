@@ -22,22 +22,38 @@ public class InputKendaraan_Controller {
         this.model = model;
         this.view = view;
         
-        view.btnAdd().addActionListener(new ActionListener() {
+        view.btnAddMotor().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                Rent_Model model = new Rent_Model();
-                DashboardAdmin_View view = new DashboardAdmin_View();
+                String merk = view.getMerk();
+                String plat = view.getPlat();
+                int harga = view.getHarga();
+                model.insertMotor(merk,plat,harga);
                 view.setVisible(false);
+                DashboardAdmin_View view = new DashboardAdmin_View();
                 DashboardAdmin_Controller admin = new DashboardAdmin_Controller(model,view);
             }
         });
         
+        view.btnAddMobil().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                String merk = view.getMerk();
+                String plat = view.getPlat();
+                int harga = view.getHarga();
+                model.insertMobil(merk,plat,harga);
+                view.setVisible(false);
+                DashboardAdmin_View view = new DashboardAdmin_View();
+                DashboardAdmin_Controller admin = new DashboardAdmin_Controller(model,view);
+            }
+        });        
+        
         view.btnReset().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                view.fHarga().setText("");
-                view.fMerk().setText("");
-                view.fPlat().setText("");
+                view.setMerk();
+                view.setPlat();
+                view.setHarga();
             }
         });
     }
