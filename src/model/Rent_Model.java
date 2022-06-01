@@ -10,7 +10,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Afrien
+ * @author user
  */
 public class Rent_Model {
     String DBurl = "jdbc:mysql://localhost/db_rent";
@@ -28,6 +28,78 @@ public class Rent_Model {
         } catch(Exception e){
             System.out.println(e.getMessage());
             System.out.println("Connection failed!");
+        }
+    }
+    
+    public int getDataMotor(){
+        int jmlData = 0;
+        try{
+            stat = conn.createStatement();
+            String query = "Select * from motor";
+            ResultSet resultSet = stat.executeQuery(query);
+            while (resultSet.next()){ 
+                jmlData++;
+            }
+            return jmlData;
+        }catch(Exception ex){
+            return 0;
+        }
+    }
+    
+    public int getDataMobil(){
+        int jmlData = 0;
+        try{
+            stat = conn.createStatement();
+            String query = "Select * from mobil";
+            ResultSet resultSet = stat.executeQuery(query);
+            while (resultSet.next()){ 
+                jmlData++;
+            }
+            return jmlData;
+        }catch(Exception ex){
+            return 0;
+        }
+    }
+    
+    public String[][] ReadMotor(){
+        try{
+            int jmlData = 0;
+            String data[][] = new String[getDataMotor()][4]; //baris sesuai banyak data di db, kolom ada 4
+            String query = "SELECT * FROM motor";
+            ResultSet resultSet = stat.executeQuery(query);
+            
+            while(resultSet.next()){
+                data[jmlData][0] = resultSet.getString("id_motor");
+                data[jmlData][1] = resultSet.getString("merk");
+                data[jmlData][2] = resultSet.getString("plat");
+                data[jmlData][3] = resultSet.getString("harga_sewa");
+                jmlData++;
+            }
+            return data;
+        }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Data masih kosong!");
+           return null;
+        }
+    }
+    
+        public String[][] ReadMobil(){
+        try{
+            int jmlData = 0;
+            String data[][] = new String[getDataMobil()][4]; //baris sesuai banyak data di db, kolom ada 4
+            String query = "SELECT * FROM mobil";
+            ResultSet resultSet = stat.executeQuery(query);
+            
+            while(resultSet.next()){
+                data[jmlData][0] = resultSet.getString("id_mobil");
+                data[jmlData][1] = resultSet.getString("merk");
+                data[jmlData][2] = resultSet.getString("plat");
+                data[jmlData][3] = resultSet.getString("harga_sewa");
+                jmlData++;
+            }
+            return data;
+        }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Data masih kosong!");
+           return null;
         }
     }
 
@@ -223,4 +295,5 @@ public class Rent_Model {
             JOptionPane.showMessageDialog(null, "Motor gagal disewa");
         }
     }
+    
 }
