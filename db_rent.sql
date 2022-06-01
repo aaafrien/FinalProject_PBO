@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Bulan Mei 2022 pada 17.57
--- Versi server: 10.4.18-MariaDB
--- Versi PHP: 8.0.5
+-- Generation Time: Jun 01, 2022 at 09:56 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `no_hp`) VALUES
@@ -45,21 +45,7 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `no_hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `disewa`
---
-
-CREATE TABLE `disewa` (
-  `id_sewa` int(10) NOT NULL,
-  `merk` int(20) NOT NULL,
-  `plat` int(15) NOT NULL,
-  `tanggal_sewa` date NOT NULL,
-  `tanggal_kembali` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `mobil`
+-- Table structure for table `mobil`
 --
 
 CREATE TABLE `mobil` (
@@ -72,7 +58,21 @@ CREATE TABLE `mobil` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `motor`
+-- Table structure for table `mobil_sewa`
+--
+
+CREATE TABLE `mobil_sewa` (
+  `id_mobil` int(11) NOT NULL,
+  `merk` varchar(20) NOT NULL,
+  `plat` varchar(15) NOT NULL,
+  `tgl_sewa` date NOT NULL,
+  `tgl_kembali` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `motor`
 --
 
 CREATE TABLE `motor` (
@@ -85,7 +85,21 @@ CREATE TABLE `motor` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `motor_sewa`
+--
+
+CREATE TABLE `motor_sewa` (
+  `id_motor` int(11) NOT NULL,
+  `merk` varchar(20) NOT NULL,
+  `plat` varchar(15) NOT NULL,
+  `tgl_sewa` date NOT NULL,
+  `tgl_kembali` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -96,7 +110,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `no_hp`) VALUES
@@ -108,59 +122,77 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `no_hp`) VALUES
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indeks untuk tabel `disewa`
---
-ALTER TABLE `disewa`
-  ADD PRIMARY KEY (`id_sewa`);
-
---
--- Indeks untuk tabel `mobil`
+-- Indexes for table `mobil`
 --
 ALTER TABLE `mobil`
   ADD PRIMARY KEY (`id_mobil`);
 
 --
--- Indeks untuk tabel `motor`
+-- Indexes for table `mobil_sewa`
+--
+ALTER TABLE `mobil_sewa`
+  ADD PRIMARY KEY (`id_mobil`);
+
+--
+-- Indexes for table `motor`
 --
 ALTER TABLE `motor`
   ADD PRIMARY KEY (`id_motor`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `motor_sewa`
+--
+ALTER TABLE `motor_sewa`
+  ADD PRIMARY KEY (`id_motor`);
+
+--
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `disewa`
---
-ALTER TABLE `disewa`
-  MODIFY `id_sewa` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `mobil`
+-- AUTO_INCREMENT for table `mobil`
 --
 ALTER TABLE `mobil`
   MODIFY `id_mobil` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `mobil_sewa`
+--
+ALTER TABLE `mobil_sewa`
+  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `motor`
+--
+ALTER TABLE `motor`
+  MODIFY `id_motor` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `motor_sewa`
+--
+ALTER TABLE `motor_sewa`
+  MODIFY `id_motor` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

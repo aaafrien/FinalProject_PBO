@@ -15,32 +15,37 @@ import view.*;
  * @author user
  */
 public class DashboardAdmin_Controller {
-    Rent_Model model;
-    DashboardAdmin_View view;
+    Rent_Model rent_Model;
+    DashboardAdmin_View dashboardAdmin_View;
 
-    public DashboardAdmin_Controller(Rent_Model model, DashboardAdmin_View view) {
-        this.model = model;
-        this.view = view;
+    public DashboardAdmin_Controller(Rent_Model rent_Model, DashboardAdmin_View dashboardAdmin_View) {
+        this.rent_Model = rent_Model;
+        this.dashboardAdmin_View = dashboardAdmin_View;
         
-        if(model.getDataMotor()!=0){
-            String dataMotor[][] = model.ReadMotor();
-            view.tableMotor().setModel((new JTable(dataMotor, view.namaKolom)).getModel());
-        }else {
+        if(rent_Model.getDataMotor()!=0) {
+            String dataMotor[][] = rent_Model.ReadMotor();
+            dashboardAdmin_View.tableMotor().setModel((new JTable(dataMotor, (Object[]) dashboardAdmin_View.namaKolom())).getModel());
+        } else {
             JOptionPane.showMessageDialog(null, "Data Tidak Tersedia");
         }
         
-        view.tableMotor().addMouseListener(new MouseAdapter(){
+        dashboardAdmin_View.btnDataKendaraan().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                InputKendaraan_View inputKendaraan_View = new InputKendaraan_View();
+                InputKendaraan_Controller inputKendaraan_Controller = new InputKendaraan_Controller(rent_Model, inputKendaraan_View);
+            }
+        });
+        
+        dashboardAdmin_View.tableMotor().addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
-                super.mousePressed(e);
-                int baris = view.tableMotor().getSelectedRow();
-                String selected = view.tableMotor().getValueAt(baris, 0).toString();
+                int baris = dashboardAdmin_View.tableMotor().getSelectedRow();
+                String selected = dashboardAdmin_View.tableMotor().getValueAt(baris, 0).toString();
                 UpdateMotor_View update = new UpdateMotor_View();
-                view.setVisible(false);
-                UpdateMotor_Controller updatecontroller = new UpdateMotor_Controller();
-                
+                dashboardAdmin_View.setVisible(false);
+                UpdateMotor_Controller updateMotor_Controller = new UpdateMotor_Controller();
             }
-
         });
     }
 }

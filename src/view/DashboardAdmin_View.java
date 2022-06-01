@@ -13,18 +13,12 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class DashboardAdmin_View extends javax.swing.JFrame {
-    DefaultTableModel dtm;
-    public Object namaKolom[] = {"Id", "Merk", "Plat", "Harga Sewa"};
-
     /**
      * Creates new form DashboardAdmin_View
      */
     public DashboardAdmin_View() {
         initComponents();
-        dtm = new DefaultTableModel(namaKolom, 0);
         setVisible(true);
-        
-        
     }
 
     /**
@@ -40,7 +34,7 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
         dataKendaraan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMotor = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
         tableMobil = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,7 +53,7 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
 
             },
             new String [] {
-
+                "Id", "Merk", "Plat", "Harga Sewa"
             }
         ));
         jScrollPane2.setViewportView(tableMotor);
@@ -69,11 +63,31 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
 
             },
             new String [] {
-
+                "Id", "Merk", "Plat", "Harga Sewa"
             }
-        ));
-        tableMobil.setToolTipText("");
-        jScrollPane3.setViewportView(tableMobil);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tableMobil);
+        if (tableMobil.getColumnModel().getColumnCount() > 0) {
+            tableMobil.getColumnModel().getColumn(0).setHeaderValue("Id");
+            tableMobil.getColumnModel().getColumn(1).setHeaderValue("Merk");
+            tableMobil.getColumnModel().getColumn(2).setHeaderValue("Plat");
+            tableMobil.getColumnModel().getColumn(3).setHeaderValue("Harga Sewa");
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,10 +98,10 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dataKendaraan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(daftarPenyewaan))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,9 +113,9 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
                     .addComponent(daftarPenyewaan))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,14 +164,14 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
     private javax.swing.JButton daftarPenyewaan;
     private javax.swing.JButton dataKendaraan;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable tableMobil;
     private javax.swing.JTable tableMotor;
     // End of variables declaration//GEN-END:variables
 
     
     public JTable tableMotor(){
-        return tableMotor = new JTable(dtm);
+        return tableMotor;
     }
     
     public JTable tableMobil(){
@@ -172,5 +186,8 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
         return dataKendaraan;
     }
     
-    
+    public Object namaKolom() {
+        Object namaKolom[] = {"Id", "Merk", "Plat", "Harga Sewa"};
+        return namaKolom;
+    }
 }

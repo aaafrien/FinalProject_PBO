@@ -19,7 +19,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
     public DashboardUser_View() {
         initComponents();
         setVisible(true);
-        JFrame window = new JFrame("Pilih Kendaraan");
+        setTitle("Pilih Kendaraan");
         setLocationRelativeTo(null);
     }
 
@@ -33,67 +33,100 @@ public class DashboardUser_View extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btMobil = new javax.swing.JButton();
-        btMotor = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableMobil = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        daftarPenyewaan = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableMotor = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Pilih Kendaraan");
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel1.setText("Motor");
 
-        btMobil.setBackground(new java.awt.Color(255, 255, 102));
-        btMobil.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        btMobil.setText("Mobil");
-        btMobil.addActionListener(new java.awt.event.ActionListener() {
+        tableMobil.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Merk", "Plat", "Harga Sewa"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tableMobil);
+
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel2.setText("Mobil");
+
+        daftarPenyewaan.setText("Daftar Penyewaan");
+        daftarPenyewaan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btMobilActionPerformed(evt);
+                daftarPenyewaanActionPerformed(evt);
             }
         });
 
-        btMotor.setBackground(new java.awt.Color(204, 255, 102));
-        btMotor.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        btMotor.setText("Motor");
-        btMotor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btMotorActionPerformed(evt);
+        tableMotor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Merk", "Plat", "Harga Sewa"
             }
-        });
+        ));
+        jScrollPane2.setViewportView(tableMotor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(btMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(daftarPenyewaan, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(daftarPenyewaan)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btMobilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMobilActionPerformed
+    private void daftarPenyewaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarPenyewaanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btMobilActionPerformed
-
-    private void btMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMotorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btMotorActionPerformed
+    }//GEN-LAST:event_daftarPenyewaanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,16 +165,29 @@ public class DashboardUser_View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btMobil;
-    private javax.swing.JButton btMotor;
+    private javax.swing.JButton daftarPenyewaan;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable tableMobil;
+    private javax.swing.JTable tableMotor;
     // End of variables declaration//GEN-END:variables
 
-    public JButton btMobil() {
-        return btMobil;
+    public JTable tableMotor(){
+        return tableMotor;
     }
     
-    public JButton btMotor() {
-        return btMotor;
+    public JTable tableMobil(){
+        return tableMobil;
+    }
+    
+    public JButton btnDaftarSewa(){
+        return daftarPenyewaan;
+    }
+    
+    public Object namaKolom() {
+        Object namaKolom[] = {"Id", "Merk", "Plat", "Harga Sewa"};
+        return namaKolom;
     }
 }

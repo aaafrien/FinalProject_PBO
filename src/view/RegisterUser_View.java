@@ -19,7 +19,7 @@ public class RegisterUser_View extends javax.swing.JFrame {
     public RegisterUser_View() {
         initComponents();
         setVisible(true);
-        JFrame window = new JFrame("Register User");
+        setTitle("Register User");
         setLocationRelativeTo(null);
     }
 
