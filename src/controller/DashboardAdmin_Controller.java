@@ -7,6 +7,7 @@ package controller;
 
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.table.TableModel;
 import model.*;
 import view.*;
 
@@ -22,18 +23,25 @@ public class DashboardAdmin_Controller {
         this.rent_Model = rent_Model;
         this.dashboardAdmin_View = dashboardAdmin_View;
         
-        if(rent_Model.getDataMotor()!=0) {
+        if(rent_Model.getDataMotor()!=0){
             String dataMotor[][] = rent_Model.ReadMotor();
             dashboardAdmin_View.tableMotor().setModel((new JTable(dataMotor, (Object[]) dashboardAdmin_View.namaKolom())).getModel());
-        } else {
+        }else {
+            JOptionPane.showMessageDialog(null, "Data Tidak Tersedia");
+        }
+        
+        if(rent_Model.getDataMobil()!=0){
+            String dataMobil[][] = rent_Model.ReadMobil();
+            dashboardAdmin_View.tableMobil().setModel((new JTable(dataMobil, (Object[]) dashboardAdmin_View.namaKolom())).getModel());
+        }else {
             JOptionPane.showMessageDialog(null, "Data Tidak Tersedia");
         }
         
         dashboardAdmin_View.btnDataKendaraan().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                InputKendaraan_View inputKendaraan_View = new InputKendaraan_View();
-                InputKendaraan_Controller inputKendaraan_Controller = new InputKendaraan_Controller(rent_Model, inputKendaraan_View);
+                InputKendaraan_View input_view = new InputKendaraan_View();
+                InputKendaraan_Controller controller = new InputKendaraan_Controller(rent_Model, input_view);
             }
         });
         
@@ -42,10 +50,33 @@ public class DashboardAdmin_Controller {
             public void mouseClicked(MouseEvent e){
                 
                 int baris = dashboardAdmin_View.tableMotor().getSelectedRow();
-                String selected = dashboardAdmin_View.tableMotor().getValueAt(baris, 0).toString();
-                UpdateMotor_View update = new UpdateMotor_View();
-                dashboardAdmin_View.setVisible(false);
-                UpdateMotor_Controller updateMotor_Controller = new UpdateMotor_Controller();
+                TableModel model = dashboardAdmin_View.tableMotor().getModel();
+                String selected = model.getValueAt(baris, 0).toString();
+                dashboardAdmin_View.dispose();
+                
+                UpdateKendaraan_View updateKendaraan_View = new UpdateKendaraan_View();
+                updateKendaraan_View.setId(selected);
+                updateKendaraan_View.fMerk().setText(model.getValueAt(baris, 1).toString());
+                updateKendaraan_View.fPlat().setText(model.getValueAt(baris, 2).toString());
+                updateKendaraan_View.fHarga().setText(model.getValueAt(baris, 3).toString());
+                UpdateMotor_Controller updateMotor_Controller = new UpdateMotor_Controller(rent_Model, updateKendaraan_View);
+            }
+        });
+        
+        dashboardAdmin_View.tableMobil().addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                int baris = dashboardAdmin_View.tableMobil().getSelectedRow();
+                TableModel model = dashboardAdmin_View.tableMobil().getModel();
+                String selected = model.getValueAt(baris, 0).toString();
+                dashboardAdmin_View.dispose();
+                
+                UpdateKendaraan_View updateKendaraan_View = new UpdateKendaraan_View();
+                updateKendaraan_View.setId(selected);
+                updateKendaraan_View.fMerk().setText(model.getValueAt(baris, 1).toString());
+                updateKendaraan_View.fPlat().setText(model.getValueAt(baris, 2).toString());
+                updateKendaraan_View.fHarga().setText(model.getValueAt(baris, 3).toString());
+                UpdateMobil_Controller updateMotor_Controller = new UpdateMobil_Controller(rent_Model, updateKendaraan_View);
             }
         });
     }
