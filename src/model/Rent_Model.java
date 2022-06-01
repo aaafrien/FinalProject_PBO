@@ -21,7 +21,7 @@ public class Rent_Model {
     Statement stat;
     
     public Rent_Model() {
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DBurl, DBuname, DBpw);
             System.out.println("Connection success!");
@@ -31,62 +31,43 @@ public class Rent_Model {
         }
     }
     
-    public int getDataMotor(){
-        int jmlData = 0;
-        try{
-            stat = conn.createStatement();
-            String query = "Select * from motor";
-            ResultSet resultSet = stat.executeQuery(query);
-            while (resultSet.next()){ 
-                jmlData++;
-            }
-            return jmlData;
-        }catch(Exception ex){
-            return 0;
-        }
-    }
-    
     public int getDataMobil(){
         int jmlData = 0;
-        try{
+        try {
+            String query = "SELECT * FROM `mobil`";
             stat = conn.createStatement();
-            String query = "Select * from mobil";
             ResultSet resultSet = stat.executeQuery(query);
+            
             while (resultSet.next()){ 
                 jmlData++;
             }
             return jmlData;
-        }catch(Exception ex){
+        } catch(Exception ex){
             return 0;
         }
     }
     
-    public String[][] ReadMotor(){
-        try{
-            int jmlData = 0;
-            String data[][] = new String[getDataMotor()][4]; //baris sesuai banyak data di db, kolom ada 4
-            String query = "SELECT * FROM motor";
+    public int getDataMotor(){
+        int jmlData = 0;
+        try {
+            String query = "SELECT * FROM `motor`";
+            stat = conn.createStatement();
             ResultSet resultSet = stat.executeQuery(query);
             
-            while(resultSet.next()){
-                data[jmlData][0] = resultSet.getString("id_motor");
-                data[jmlData][1] = resultSet.getString("merk");
-                data[jmlData][2] = resultSet.getString("plat");
-                data[jmlData][3] = resultSet.getString("harga_sewa");
+            while (resultSet.next()){ 
                 jmlData++;
             }
-            return data;
-        }catch(Exception ex){
-           JOptionPane.showMessageDialog(null, "Data masih kosong!");
-           return null;
+            return jmlData;
+        } catch(Exception ex){
+            return 0;
         }
-    }
+    }    
     
-        public String[][] ReadMobil(){
-        try{
+    public String[][] ReadMobil(){
+        try {
             int jmlData = 0;
             String data[][] = new String[getDataMobil()][4]; //baris sesuai banyak data di db, kolom ada 4
-            String query = "SELECT * FROM mobil";
+            String query = "SELECT * FROM `mobil`";
             ResultSet resultSet = stat.executeQuery(query);
             
             while(resultSet.next()){
@@ -97,7 +78,28 @@ public class Rent_Model {
                 jmlData++;
             }
             return data;
-        }catch(Exception ex){
+        } catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Data masih kosong!");
+           return null;
+        }
+    }
+    
+    public String[][] ReadMotor(){
+        try {
+            int jmlData = 0;
+            String data[][] = new String[getDataMotor()][4]; //baris sesuai banyak data di db, kolom ada 4
+            String query = "SELECT * FROM `motor`";
+            ResultSet resultSet = stat.executeQuery(query);
+            
+            while(resultSet.next()){
+                data[jmlData][0] = resultSet.getString("id_motor");
+                data[jmlData][1] = resultSet.getString("merk");
+                data[jmlData][2] = resultSet.getString("plat");
+                data[jmlData][3] = resultSet.getString("harga_sewa");
+                jmlData++;
+            }
+            return data;
+        } catch(Exception ex){
            JOptionPane.showMessageDialog(null, "Data masih kosong!");
            return null;
         }
@@ -295,5 +297,4 @@ public class Rent_Model {
             JOptionPane.showMessageDialog(null, "Motor gagal disewa");
         }
     }
-    
 }

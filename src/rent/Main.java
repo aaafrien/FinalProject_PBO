@@ -24,5 +24,4 @@ public class Main {
         Rent_Model rent_Model = new Rent_Model();
         MainMenu_Controller mainMenu_Controller = new MainMenu_Controller(rent_Model, mainMenu_View);
     }
-    
 }
