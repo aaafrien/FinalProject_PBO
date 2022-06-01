@@ -19,7 +19,7 @@ public class MainMenu_View extends javax.swing.JFrame {
     public MainMenu_View() {
         initComponents();
         setVisible(true);
-        JFrame window = new JFrame("Main Menu");
+        setTitle("Main Menu");
         setLocationRelativeTo(null);
     }
 

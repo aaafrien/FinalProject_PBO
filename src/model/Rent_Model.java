@@ -254,37 +254,38 @@ public class Rent_Model {
         }
     }
     
-    public void sewaMobil(String merk, String plat, String tgl_sewa, String tgl_kembali, String id) {
+    public void sewaMobil(String merk, String plat, Date tgl_sewa, Date tgl_kembali, String id) {
         try {
-            String query = "INSERT INTO `mobil_disewa` (`merk`, `plat`, `tanggal_sewa`, `tanggal_kembali`)VALUES ('" + merk + "', '" + plat + "','" + tgl_sewa + "','" + tgl_kembali +"') WHERE `id`=" + id;
+            String query = "INSERT INTO `mobil_sewa` (`merk`, `id_mobil`, `plat`, `tgl_sewa`, `tgl_kembali`) VALUES ('" + merk + "', '" + id + "', '" + plat + "','" + tgl_sewa + "','" + tgl_kembali + "')";
             
             stat = conn.createStatement();
             stat.executeUpdate(query);
-            
             JOptionPane.showMessageDialog(null, "Mobil berhasil disewa");
             
-            String delete = "DELETE FROM `mobil` WHERE `id`=" + id;
+            String delete = "DELETE FROM `mobil` WHERE `id_mobil`=" + id;
             
             stat = conn.createStatement();
             stat.executeUpdate(delete);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Mobil gagal disewa");
         }
     }
     
-    public void sewaMotor(String merk, String plat, String tgl_sewa, String tgl_kembali, String id) {
+    public void sewaMotor(String merk, String plat, Date tgl_sewa, Date tgl_kembali, String id) {
         try {
-            String query = "INSERT INTO `motor_disewa` (`merk`, `plat`, `tanggal_sewa`, `tanggal_kembali`)VALUES ('" + merk + "', '" + plat + "','" + tgl_sewa + "','" + tgl_kembali +"') WHERE `id`=" + id;
+            String query = "INSERT INTO `motor_sewa` (`merk`, `id_motor`, `plat`, `tgl_sewa`, `tgl_kembali`) VALUES ('" + merk + "', '" + id + "', '" + plat + "','" + tgl_sewa + "','" + tgl_kembali + "')";
             
             stat = conn.createStatement();
             stat.executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Motor berhasil disewa");
             
-            String delete = "DELETE FROM `motor` WHERE `id`=" + id;
+            String delete = "DELETE FROM `motor` WHERE `id_motor`=" + id;
             
             stat = conn.createStatement();
             stat.executeUpdate(delete);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Motor gagal disewa");
         }
     }

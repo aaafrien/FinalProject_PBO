@@ -19,7 +19,7 @@ public class LoginAdmin_View extends javax.swing.JFrame {
     public LoginAdmin_View() {
         initComponents();
         setVisible(true);
-        JFrame window = new JFrame("Login Admin");
+        setTitle("Login Admin");
         setLocationRelativeTo(null);
     }
 

@@ -7,7 +7,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JTextField;
+import java.sql.Date;
 import model.Rent_Model;
 import view.DashboardUser_View;
 import view.DetailPinjam_View;
@@ -32,9 +32,9 @@ public class PinjamMotor_Controller {
                 System.out.println(merk);
                 String plat = detailPinjam_View.lbPlat().getText();
                 System.out.println(plat);
-                String tgl_sewa = detailPinjam_View.tglSewa();
+                Date tgl_sewa = detailPinjam_View.tglSewa();
                 System.out.println(tgl_sewa);
-                String tgl_kembali = detailPinjam_View.tglKembali();
+                Date tgl_kembali = detailPinjam_View.tglKembali();
                 System.out.println(tgl_kembali);
                 rent_Model.sewaMotor(merk, plat, tgl_sewa, tgl_kembali, id);
                 detailPinjam_View.dispose();

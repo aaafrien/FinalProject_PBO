@@ -23,23 +23,24 @@ public class DashboardAdmin_Controller {
         this.rent_Model = rent_Model;
         this.dashboardAdmin_View = dashboardAdmin_View;
         
-        if(rent_Model.getDataMotor()!=0){
+        if(rent_Model.getDataMotor()!=0) {
             String dataMotor[][] = rent_Model.ReadMotor();
             dashboardAdmin_View.tableMotor().setModel((new JTable(dataMotor, (Object[]) dashboardAdmin_View.namaKolom())).getModel());
-        }else {
-            JOptionPane.showMessageDialog(null, "Data Tidak Tersedia");
+        } else {
+            JOptionPane.showMessageDialog(null, "Tidak ada motor yang tersedia");
         }
         
-        if(rent_Model.getDataMobil()!=0){
+        if(rent_Model.getDataMobil()!=0) {
             String dataMobil[][] = rent_Model.ReadMobil();
             dashboardAdmin_View.tableMobil().setModel((new JTable(dataMobil, (Object[]) dashboardAdmin_View.namaKolom())).getModel());
-        }else {
-            JOptionPane.showMessageDialog(null, "Data Tidak Tersedia");
+        } else {
+            JOptionPane.showMessageDialog(null, "Tidak ada mobil yang tersedia");
         }
         
         dashboardAdmin_View.btnDataKendaraan().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
+                dashboardAdmin_View.dispose();
                 InputKendaraan_View input_view = new InputKendaraan_View();
                 InputKendaraan_Controller controller = new InputKendaraan_Controller(rent_Model, input_view);
             }
@@ -48,7 +49,6 @@ public class DashboardAdmin_Controller {
         dashboardAdmin_View.tableMotor().addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
-                
                 int baris = dashboardAdmin_View.tableMotor().getSelectedRow();
                 TableModel model = dashboardAdmin_View.tableMotor().getModel();
                 String selected = model.getValueAt(baris, 0).toString();

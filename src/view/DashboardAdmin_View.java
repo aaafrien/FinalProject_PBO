@@ -6,19 +6,21 @@
 package view;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author user
+ * @author Afrien
  */
 public class DashboardAdmin_View extends javax.swing.JFrame {
+
     /**
-     * Creates new form DashboardAdmin_View
+     * Creates new form NewJFrame
      */
     public DashboardAdmin_View() {
         initComponents();
         setVisible(true);
+        setTitle("Dashboard Admin");
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -30,23 +32,16 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        daftarPenyewaan = new javax.swing.JButton();
-        dataKendaraan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMotor = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableMobil = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        daftarPenyewaan = new javax.swing.JButton();
+        dataKendaraan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        daftarPenyewaan.setText("Daftar Penyewaan");
-        daftarPenyewaan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daftarPenyewaanActionPerformed(evt);
-            }
-        });
-
-        dataKendaraan.setText("Data Kendaraan");
 
         tableMotor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,6 +52,9 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(tableMotor);
+
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel1.setText("Motor");
 
         tableMobil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,12 +80,24 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
             }
         });
         jScrollPane4.setViewportView(tableMobil);
-        if (tableMobil.getColumnModel().getColumnCount() > 0) {
-            tableMobil.getColumnModel().getColumn(0).setHeaderValue("Id");
-            tableMobil.getColumnModel().getColumn(1).setHeaderValue("Merk");
-            tableMobil.getColumnModel().getColumn(2).setHeaderValue("Plat");
-            tableMobil.getColumnModel().getColumn(3).setHeaderValue("Harga Sewa");
-        }
+
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel2.setText("Mobil");
+
+        daftarPenyewaan.setText("Daftar Penyewaan");
+        daftarPenyewaan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daftarPenyewaanActionPerformed(evt);
+            }
+        });
+
+        dataKendaraan.setText("Input Kendaraan");
+        dataKendaraan.setActionCommand("Data Kendaraan");
+        dataKendaraan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataKendaraanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,27 +105,34 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(dataKendaraan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(daftarPenyewaan))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(dataKendaraan)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(daftarPenyewaan))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dataKendaraan)
-                    .addComponent(daftarPenyewaan))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(daftarPenyewaan)
+                    .addComponent(dataKendaraan))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,6 +141,10 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
     private void daftarPenyewaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarPenyewaanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_daftarPenyewaanActionPerformed
+
+    private void dataKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataKendaraanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataKendaraanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +172,7 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DashboardAdmin_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -163,13 +185,14 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton daftarPenyewaan;
     private javax.swing.JButton dataKendaraan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable tableMobil;
     private javax.swing.JTable tableMotor;
     // End of variables declaration//GEN-END:variables
 
-    
     public JTable tableMotor(){
         return tableMotor;
     }

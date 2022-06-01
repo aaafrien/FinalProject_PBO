@@ -7,6 +7,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import javax.swing.JFormattedTextField;
 import model.Rent_Model;
 import view.DashboardUser_View;
@@ -28,11 +29,14 @@ public class PinjamMobil_Controller {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 String id = detailPinjam_View.getId();
-                String merk = detailPinjam_View.lbMerk().toString();
-                String plat = detailPinjam_View.lbPlat().toString();
-                String tgl_sewa = detailPinjam_View.tglSewa();
-                String tgl_kembali = detailPinjam_View.tglKembali();
+                String merk = detailPinjam_View.lbMerk().getText();
+                System.out.println(merk);
+                String plat = detailPinjam_View.lbPlat().getText();
+                System.out.println(plat);
+                Date tgl_sewa = detailPinjam_View.tglSewa();
                 System.out.println(tgl_sewa);
+                Date tgl_kembali = detailPinjam_View.tglKembali();
+                System.out.println(tgl_kembali);
                 rent_Model.sewaMobil(merk, plat, tgl_sewa, tgl_kembali, id);
                 detailPinjam_View.dispose();
                 DashboardUser_View dashboardUser_View = new DashboardUser_View();

@@ -25,7 +25,7 @@ public class LoginUser_View extends JFrame {
     public LoginUser_View() {
         initComponents();
         setVisible(true);
-        JFrame window = new JFrame("Login User");
+        setTitle("Login User");
         setLocationRelativeTo(null);
     }
 

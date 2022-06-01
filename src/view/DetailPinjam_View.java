@@ -6,9 +6,6 @@
 
 package view;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -25,6 +22,7 @@ public class DetailPinjam_View extends javax.swing.JFrame {
     public DetailPinjam_View() {
         initComponents();
         setVisible(true);
+        setTitle("Sewa Kendaraan");
         setLocationRelativeTo(null);
     }
 
@@ -54,8 +52,8 @@ public class DetailPinjam_View extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        tgl_sewa = new javax.swing.JFormattedTextField();
-        tgl_kembali = new javax.swing.JFormattedTextField();
+        tgl_sewa = new javax.swing.JTextField();
+        tgl_kembali = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,15 +117,6 @@ public class DetailPinjam_View extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel12.setText(":");
 
-        tgl_sewa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        tgl_sewa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tgl_sewaActionPerformed(evt);
-            }
-        });
-
-        tgl_kembali.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,12 +131,6 @@ public class DetailPinjam_View extends javax.swing.JFrame {
                                 .addComponent(btPinjam)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btCancel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tgl_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
@@ -155,23 +138,28 @@ public class DetailPinjam_View extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel8))
                                 .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lbPlatnya, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbPlatnya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lbMerknya, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbMerknya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel11))
                                         .addGap(10, 10, 10)
-                                        .addComponent(lbHarganya, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tgl_sewa, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lbHarganya, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                            .addComponent(tgl_kembali)
+                                            .addComponent(tgl_sewa)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -230,10 +218,6 @@ public class DetailPinjam_View extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btCancelActionPerformed
 
-    private void tgl_sewaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tgl_sewaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tgl_sewaActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -287,8 +271,8 @@ public class DetailPinjam_View extends javax.swing.JFrame {
     private javax.swing.JLabel lbHarganya;
     private javax.swing.JLabel lbMerknya;
     private javax.swing.JLabel lbPlatnya;
-    private javax.swing.JFormattedTextField tgl_kembali;
-    private javax.swing.JFormattedTextField tgl_sewa;
+    private javax.swing.JTextField tgl_kembali;
+    private javax.swing.JTextField tgl_sewa;
     // End of variables declaration//GEN-END:variables
        
     public JButton btPinjam() {
@@ -311,29 +295,20 @@ public class DetailPinjam_View extends javax.swing.JFrame {
         return lbHarganya;
     }
     
-    public String tglSewa() {
-        LocalDate tgl_sewa = LocalDate.now();//For reference
-        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("YY/MM/DD");
-        String formattedString = tgl_sewa.format(formatted);
-//        DateFormat dateFormat = new SimpleDateFormat("YY/MM/DD");
-//        JFormattedTextField tgl_sewa = new JFormattedTextField(dateFormat);
-//        tgl_sewa.setValue(new Date());
-        return formattedString;
+    public Date tglSewa() {
+        String text = tgl_sewa.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+        LocalDate textFieldAsDate = LocalDate.parse(text, formatter);
+        Date sqlDate = Date.valueOf(textFieldAsDate);
+        return sqlDate;
     }
     
-    public String tglKembali() {
-        LocalDate tgl_kembali = LocalDate.now();//For reference
-        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("YY/MM/DD");
-        String formattedString = tgl_kembali.format(formatted);
-//        DateFormat dateFormat = new SimpleDateFormat("YY/MM/DD");
-//        JFormattedTextField tgl_sewa = new JFormattedTextField(dateFormat);
-//        tgl_sewa.setValue(new Date());
-        return formattedString;
-//        DateFormat dateFormat = new SimpleDateFormat("YYYY/MM/DD");
-//        JFormattedTextField tgl_kembali = new JFormattedTextField(dateFormat);
-//        tgl_kembali.format(date);
-//
-//        return tgl_kembali.getText();
+    public Date tglKembali() {
+        String text = tgl_kembali.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+        LocalDate textFieldAsDate = LocalDate.parse(text, formatter);
+        Date sqlDate = Date.valueOf(textFieldAsDate);
+        return sqlDate;
     }
 
     public String getId(){

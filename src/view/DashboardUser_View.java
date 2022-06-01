@@ -19,7 +19,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
     public DashboardUser_View() {
         initComponents();
         setVisible(true);
-        setTitle("Pilih Kendaraan");
+        setTitle("Dashboard User");
         setLocationRelativeTo(null);
     }
 
@@ -41,8 +41,10 @@ public class DashboardUser_View extends javax.swing.JFrame {
         tableMotor = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setSize(new java.awt.Dimension(460, 458));
 
-        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel1.setText("Motor");
 
         tableMobil.setModel(new javax.swing.table.DefaultTableModel(
@@ -70,7 +72,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tableMobil);
 
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel2.setText("Mobil");
 
         daftarPenyewaan.setText("Daftar Penyewaan");
