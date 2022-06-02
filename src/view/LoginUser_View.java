@@ -236,7 +236,7 @@ public class LoginUser_View extends JFrame {
     }
     
     public String getPassword() {
-        return pfPw.getPassword().toString();
+        return pfPw.getText().toString();
     }
     
     public JButton btLogin() {

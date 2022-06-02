@@ -183,31 +183,83 @@ public class Rent_Model {
     
     public void LoginUser(String uname, String pw) {
         try {
+            String username = null;
+            String password = null;
+            String query = "SELECT * FROM `user` WHERE `username`='" + uname +"' AND `password`='" + pw + "'";
+            stat = conn.createStatement();
+            ResultSet resultSet = stat.executeQuery(query);
+            if(resultSet.next()){
+                username = resultSet.getString("username");
+                password = resultSet.getString("password");
+            }
             if(uname.isEmpty() || pw.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Username & Password cannot be empty!");
             } else {
-                String query = "SELECT * FROM `user` WHERE `username`='" + uname +"' AND `password`='" + pw + "'";
-                stat = conn.createStatement();
-                stat.executeQuery(query);
-                
-                JOptionPane.showMessageDialog(null, "Login success!");
+                if(uname.equals(username)&&pw.equals(password)){
+                    JOptionPane.showMessageDialog(null, "Login success!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Password atau username salah");
+                }
             }
         } catch (Exception e) {
             System.out.println(e);
             JOptionPane.showMessageDialog(null, "Login failed!");
         }
     }
+    
+    public String passUser(String uname, String pw){
+        try{
+            String username = null;
+            String password = null;
+            String query = "SELECT * FROM `user` WHERE `username`='" + uname +"' AND `password`='" + pw + "'";
+            stat = conn.createStatement();
+            ResultSet resultSet = stat.executeQuery(query);
+            if(resultSet.next()){
+                username = resultSet.getString("username");
+                password = resultSet.getString("password");
+            }
+            return password;
+        }catch(Exception ex){
+           return null;
+        }
+    }
+    
+    public String passAdmin(String uname, String pw){
+        try{
+            String username = null;
+            String password = null;
+            String query = "SELECT * FROM `admin` WHERE `username`='" + uname +"' AND `password`='" + pw + "'";
+            stat = conn.createStatement();
+            ResultSet resultSet = stat.executeQuery(query);
+            if(resultSet.next()){
+                username = resultSet.getString("username");
+                password = resultSet.getString("password");
+            }
+            return password;
+        }catch(Exception ex){
+           return null;
+        }
+    }
 
     public void LoginAdmin(String uname, String pw) {
         try {
+            String username = null;
+            String password = null;
+            String query = "SELECT * FROM `admin` WHERE `username`='" + uname +"' AND `password`='" + pw + "'";
+            stat = conn.createStatement();
+            ResultSet resultSet = stat.executeQuery(query);
+            if(resultSet.next()){
+                username = resultSet.getString("username");
+                password = resultSet.getString("password");
+            }
             if(uname.isEmpty() || pw.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Username & Password cannot be empty!");
             } else {
-                String query = "SELECT * FROM `admin` WHERE `username`='" + uname +"' AND `password`='" + pw + "'";
-                stat = conn.createStatement();
-                stat.executeQuery(query);
-                
-                JOptionPane.showMessageDialog(null, "Login success!");
+                if(uname.equals(username)&&pw.equals(password)){
+                    JOptionPane.showMessageDialog(null, "Login success!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Password atau username salah");
+                }
             }
         } catch (Exception e) {
             System.out.println(e);

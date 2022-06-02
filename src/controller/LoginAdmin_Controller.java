@@ -29,15 +29,16 @@ public class LoginAdmin_Controller {
             public void actionPerformed(ActionEvent arg0) {
                 String username = loginAdmin_View.getUname();
                 String password = loginAdmin_View.getPassword();
-                if(username.isEmpty() || password.isEmpty()) {
-                    rent_Model.LoginAdmin(username, password);
+                String cekpass = rent_Model.passAdmin(username, password);
+                rent_Model.LoginAdmin(username, password);                   
+                if(username.isEmpty() || password.isEmpty() || !password.equals(cekpass)){
                     loginAdmin_View.dispose();
                     loginAdmin_View.setVisible(true);
-                } else {
-                    rent_Model.LoginAdmin(username, password);
+                }
+                else{
                     loginAdmin_View.dispose();
-                    DashboardAdmin_View view = new DashboardAdmin_View();
-                    DashboardAdmin_Controller dashboardAmin_Controller = new DashboardAdmin_Controller(rent_Model, view);
+                    DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
+                    DashboardAdmin_Controller dashboardAmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
                 }
             }
         });

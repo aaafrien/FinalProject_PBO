@@ -29,15 +29,15 @@ public class LoginUser_Controller {
             public void actionPerformed(ActionEvent arg0) {
                 String username = loginUser_View.getUname();
                 String password = loginUser_View.getPassword();
-                if(username.isEmpty() || password.isEmpty()) {
-                    rent_Model.LoginUser(username, password);
+                String cekpass = rent_Model.passUser(username, password);
+                rent_Model.LoginUser(username, password);
+                if(username.isEmpty() || password.isEmpty() || !password.equals(cekpass)) {
                     loginUser_View.dispose();
                     loginUser_View.setVisible(true);
-                } else {
-                    rent_Model.LoginUser(username, password);
+                } else{
                     loginUser_View.dispose();
-                    DashboardUser_View dashboard_View = new DashboardUser_View();
-                    DashboardUser_Controller dashboard_Controller = new DashboardUser_Controller(rent_Model, dashboard_View);
+                    DashboardUser_View dashboardUser_View = new DashboardUser_View();
+                    DashboardUser_Controller dashboardUser_Controller = new DashboardUser_Controller(rent_Model, dashboardUser_View);
                 }
             }
         });
