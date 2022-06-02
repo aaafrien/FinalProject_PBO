@@ -5,10 +5,8 @@
  */
 package controller;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import java.awt.event.*;
+import javax.swing.*;
 import javax.swing.table.TableModel;
 import model.Rent_Model;
 import view.*;
