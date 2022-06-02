@@ -29,7 +29,7 @@ public class DaftarSewaUser_Controller {
         if(rent_Model.getDataSewaMotor()!=0){
             String dataSewaMotor[][] = rent_Model.ReadSewaMotor();
             daftarSewa_View.tableSewaMotor().setModel((new JTable(dataSewaMotor, (Object[]) daftarSewa_View.namaKolomMotor())).getModel());
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Tidak ada motor yang disewa");
         }
         
@@ -37,7 +37,7 @@ public class DaftarSewaUser_Controller {
             String dataSewaMobil[][] = rent_Model.ReadSewaMobil();
             daftarSewa_View.tableSewaMobil().setModel((new JTable(dataSewaMobil, (Object[]) daftarSewa_View.namaKolomMobil())).getModel());
         } else {
-            JOptionPane.showMessageDialog(null, "Tidak ada motor yang disewa");
+            JOptionPane.showMessageDialog(null, "Tidak ada mobil yang disewa");
         }
         
         daftarSewa_View.tableSewaMotor().addMouseListener(new MouseAdapter(){

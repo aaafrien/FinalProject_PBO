@@ -43,15 +43,17 @@ public class DaftarSewa_View extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnKembali.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnKembali.setBackground(new java.awt.Color(153, 204, 255));
+        btnKembali.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         btnKembali.setText("Kembali");
+        btnKembali.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         tableSewaMobil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id_sewa", "id_mobil", "Merk", "Plat", "Harga Sewa", "Tanggal Sewa", "Tanggal Kembali"
+                "Id Sewa", "Id Mobil", "Merk", "Plat", "Harga Sewa", "Tanggal Sewa", "Tanggal Kembali"
             }
         ) {
             Class[] types = new Class [] {
@@ -78,7 +80,7 @@ public class DaftarSewa_View extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id_sewa", "id_motor", "Merk", "Plat", "Harga Sewa", "Tanggal Sewa", "Tanggal Kembali"
+                "Id Sewa", "Id Motor", "Merk", "Plat", "Harga Sewa", "Tanggal Sewa", "Tanggal Kembali"
             }
         ) {
             Class[] types = new Class [] {
