@@ -37,13 +37,7 @@ public class UpdateMotor_Controller {
             }
         });
         
-        updateKendaraan_View.btnCancel().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                updateKendaraan_View.dispose();
-                DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
-                DashboardAdmin_Controller dashboardAdmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
-            }
-        });
     }
+    
+    
 }

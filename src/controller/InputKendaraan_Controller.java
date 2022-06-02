@@ -15,54 +15,45 @@ import view.*;
  * @author user
  */
 public class InputKendaraan_Controller {
-    Rent_Model rent_Model;
-    InputKendaraan_View inputKendaraan_View;
+    Rent_Model model;
+    InputKendaraan_View view;
 
-    public InputKendaraan_Controller(Rent_Model rent_Model, InputKendaraan_View inputKendaraan_View) {
-        this.rent_Model = rent_Model;
-        this.inputKendaraan_View = inputKendaraan_View;
+    public InputKendaraan_Controller(Rent_Model model, InputKendaraan_View view) {
+        this.model = model;
+        this.view = view;
         
-        inputKendaraan_View.btnAddMotor().addActionListener(new ActionListener() {
+        view.btnAddMotor().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                String merk = inputKendaraan_View.getMerk();
-                String plat = inputKendaraan_View.getPlat();
-                int harga = inputKendaraan_View.getHarga();
-                rent_Model.insertMotor(merk, plat, harga);
-                inputKendaraan_View.dispose();
-                DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
-                DashboardAdmin_Controller dashboardAdmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
+                String merk = view.getMerk();
+                String plat = view.getPlat();
+                int harga = view.getHarga();
+                model.insertMotor(merk,plat,harga);
+                view.setVisible(false);
+                DashboardAdmin_View view = new DashboardAdmin_View();
+                DashboardAdmin_Controller admin = new DashboardAdmin_Controller(model,view);
             }
         });
         
-        inputKendaraan_View.btnAddMobil().addActionListener(new ActionListener() {
+        view.btnAddMobil().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                String merk = inputKendaraan_View.getMerk();
-                String plat = inputKendaraan_View.getPlat();
-                int harga = inputKendaraan_View.getHarga();
-                rent_Model.insertMobil(merk, plat, harga);
-                inputKendaraan_View.dispose();
-                DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
-                DashboardAdmin_Controller dashboardAdmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
+                String merk = view.getMerk();
+                String plat = view.getPlat();
+                int harga = view.getHarga();
+                model.insertMobil(merk,plat,harga);
+                view.setVisible(false);
+                DashboardAdmin_View view = new DashboardAdmin_View();
+                DashboardAdmin_Controller admin = new DashboardAdmin_Controller(model,view);
             }
         });        
         
-        inputKendaraan_View.btnReset().addActionListener(new ActionListener() {
+        view.btnReset().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                inputKendaraan_View.setMerk();
-                inputKendaraan_View.setPlat();
-                inputKendaraan_View.setHarga();
-            }
-        });
-        
-        inputKendaraan_View.btnCancel().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                inputKendaraan_View.dispose();
-                DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
-                DashboardAdmin_Controller dashboardAdmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
+                view.setMerk();
+                view.setPlat();
+                view.setHarga();
             }
         });
     }

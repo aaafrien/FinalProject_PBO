@@ -23,26 +23,35 @@ public class DashboardAdmin_Controller {
         this.rent_Model = rent_Model;
         this.dashboardAdmin_View = dashboardAdmin_View;
         
-        if(rent_Model.getDataMotor()!=0) {
+        if(rent_Model.getDataMotor()!=0){
             String dataMotor[][] = rent_Model.ReadMotor();
             dashboardAdmin_View.tableMotor().setModel((new JTable(dataMotor, (Object[]) dashboardAdmin_View.namaKolom())).getModel());
-        } else {
-            JOptionPane.showMessageDialog(null, "Tidak ada motor yang tersedia");
+        }else {
+            JOptionPane.showMessageDialog(null, "Data Motor Tidak Tersedia");
         }
         
-        if(rent_Model.getDataMobil()!=0) {
+        if(rent_Model.getDataMobil()!=0){
             String dataMobil[][] = rent_Model.ReadMobil();
             dashboardAdmin_View.tableMobil().setModel((new JTable(dataMobil, (Object[]) dashboardAdmin_View.namaKolom())).getModel());
-        } else {
-            JOptionPane.showMessageDialog(null, "Tidak ada mobil yang tersedia");
+        }else {
+            JOptionPane.showMessageDialog(null, "Data Mobil Tidak Tersedia");
         }
         
         dashboardAdmin_View.btnDataKendaraan().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                dashboardAdmin_View.dispose();
                 InputKendaraan_View input_view = new InputKendaraan_View();
+                dashboardAdmin_View.dispose();
                 InputKendaraan_Controller controller = new InputKendaraan_Controller(rent_Model, input_view);
+            }
+        });
+        
+        dashboardAdmin_View.btnDaftarSewa().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                DaftarSewa_View daftarSewa_View = new DaftarSewa_View();
+                dashboardAdmin_View.dispose();
+                DaftarSewa_Controller daftarSewa_Controller = new DaftarSewa_Controller(rent_Model, daftarSewa_View);
             }
         });
         

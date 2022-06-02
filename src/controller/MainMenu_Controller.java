@@ -12,7 +12,7 @@ import view.*;
 
 /**
  *
- * @author Afrien
+ * @author Asus
  */
 public class MainMenu_Controller {
     Rent_Model rent_Model;
