@@ -51,9 +51,17 @@ public class DaftarSewa_View extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id Sewa", "Id Motor", "Merk", "Plat", "Tanggal Sewa", "Tanggal Kembali"
+                "id_sewa", "id_mobil", "Merk", "Plat", "Harga Sewa", "Tanggal Sewa", "Tanggal Kembali"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tableSewaMobil);
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -70,10 +78,21 @@ public class DaftarSewa_View extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id Sewa", "Id Motor", "Merk", "Plat", "Tanggal Sewa", "Tanggal Kembali"
+                "id_sewa", "id_motor", "Merk", "Plat", "Harga Sewa", "Tanggal Sewa", "Tanggal Kembali"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tableSewaMotor);
+        if (tableSewaMotor.getColumnModel().getColumnCount() > 0) {
+            tableSewaMotor.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,12 +194,12 @@ public class DaftarSewa_View extends javax.swing.JFrame {
     }
     
     public Object namaKolomMotor() {
-        Object namaKolomMotor[] = {"Id Sewa", "Id Motor", "Merk", "Plat", "Tanggal Sewa", "Tanggal Kembali"};
+        Object namaKolomMotor[] = {"ID Sewa", "ID Motor", "Merk", "Plat", "Harga Sewa", "Tanggal Sewa", "Tanggal Kembali"};
         return namaKolomMotor;
     }
     
     public Object namaKolomMobil() {
-        Object namaKolomMobil[] = {"Id Sewa", "Id Mobil", "Merk", "Plat", "Tanggal Sewa", "Tanggal Kembali"};
+        Object namaKolomMobil[] = {"ID Sewa", "ID Mobil", "Merk", "Plat", "Harga Sewa", "Tanggal Sewa", "Tanggal Kembali"};
         return namaKolomMobil;
     }
 }

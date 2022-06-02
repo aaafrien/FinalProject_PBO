@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jun 2022 pada 21.18
+-- Waktu pembuatan: 02 Jun 2022 pada 13.54
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.5
 
@@ -55,6 +55,14 @@ CREATE TABLE `mobil` (
   `harga_sewa` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `mobil`
+--
+
+INSERT INTO `mobil` (`id_mobil`, `merk`, `plat`, `harga_sewa`) VALUES
+(9, 'Brio', 'AB 5543 ZH', 210000),
+(10, 'HRV', 'AB 2775 GZ', 395000);
+
 -- --------------------------------------------------------
 
 --
@@ -66,16 +74,10 @@ CREATE TABLE `mobil_sewa` (
   `id_mobil` int(11) NOT NULL,
   `merk` varchar(20) NOT NULL,
   `plat` varchar(15) NOT NULL,
+  `harga_sewa` int(11) NOT NULL,
   `tgl_sewa` date NOT NULL,
   `tgl_kembali` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `mobil_sewa`
---
-
-INSERT INTO `mobil_sewa` (`id_sewa`, `id_mobil`, `merk`, `plat`, `tgl_sewa`, `tgl_kembali`) VALUES
-(9, 2, 'Brio', 'AB 5543 ZH', '2022-12-02', '2022-12-05');
 
 -- --------------------------------------------------------
 
@@ -90,6 +92,16 @@ CREATE TABLE `motor` (
   `harga_sewa` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `motor`
+--
+
+INSERT INTO `motor` (`id_motor`, `merk`, `plat`, `harga_sewa`) VALUES
+(3, 'scoopy', 'AB 1232 AX', 20000),
+(5, 'vario', 'AB 2323 XA', 26500),
+(6, 'Beat', 'AD 5331 JA', 26000),
+(7, 'Aerox', 'AB 4742 GA', 36000);
+
 -- --------------------------------------------------------
 
 --
@@ -101,18 +113,10 @@ CREATE TABLE `motor_sewa` (
   `id_motor` int(11) NOT NULL,
   `merk` varchar(20) NOT NULL,
   `plat` varchar(15) NOT NULL,
+  `harga_sewa` int(11) NOT NULL,
   `tgl_sewa` date NOT NULL,
   `tgl_kembali` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `motor_sewa`
---
-
-INSERT INTO `motor_sewa` (`id_sewa`, `id_motor`, `merk`, `plat`, `tgl_sewa`, `tgl_kembali`) VALUES
-(3, 1, 'scoopy', 'AB 1232 AX', '2022-12-12', '2022-12-17'),
-(4, 2, 'vario', 'AB 2222 XA', '2022-06-25', '2022-06-30'),
-(5, 3, 'vario', 'AB 2323 XA', '2022-05-20', '2022-05-22');
 
 -- --------------------------------------------------------
 
@@ -191,25 +195,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `mobil`
 --
 ALTER TABLE `mobil`
-  MODIFY `id_mobil` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mobil` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `mobil_sewa`
 --
 ALTER TABLE `mobil_sewa`
-  MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `motor`
 --
 ALTER TABLE `motor`
-  MODIFY `id_motor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_motor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `motor_sewa`
 --
 ALTER TABLE `motor_sewa`
-  MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

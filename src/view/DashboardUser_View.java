@@ -36,10 +36,10 @@ public class DashboardUser_View extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tableMobil = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        daftarPenyewaan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMotor = new javax.swing.JTable();
-        btnLogout = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
+        daftarPenyewaan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -76,14 +76,6 @@ public class DashboardUser_View extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel2.setText("Mobil");
 
-        daftarPenyewaan.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        daftarPenyewaan.setText("Daftar Penyewaan");
-        daftarPenyewaan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daftarPenyewaanActionPerformed(evt);
-            }
-        });
-
         tableMotor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -94,11 +86,27 @@ public class DashboardUser_View extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tableMotor);
 
-        btnLogout.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        btnLogOut.setBackground(new java.awt.Color(153, 204, 255));
+        btnLogOut.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        btnLogOut.setText("Logout");
+        btnLogOut.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLogOut.setPreferredSize(new java.awt.Dimension(69, 23));
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                btnLogOutActionPerformed(evt);
+            }
+        });
+
+        daftarPenyewaan.setBackground(new java.awt.Color(255, 204, 204));
+        daftarPenyewaan.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        daftarPenyewaan.setText("Daftar Penyewaan");
+        daftarPenyewaan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        daftarPenyewaan.setMaximumSize(new java.awt.Dimension(127, 23));
+        daftarPenyewaan.setMinimumSize(new java.awt.Dimension(101, 23));
+        daftarPenyewaan.setPreferredSize(new java.awt.Dimension(101, 23));
+        daftarPenyewaan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daftarPenyewaanActionPerformed(evt);
             }
         });
 
@@ -114,10 +122,10 @@ public class DashboardUser_View extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(daftarPenyewaan)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(daftarPenyewaan, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLogout))))
+                            .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -133,21 +141,21 @@ public class DashboardUser_View extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(daftarPenyewaan)
-                    .addComponent(btnLogout))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(daftarPenyewaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
     private void daftarPenyewaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarPenyewaanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_daftarPenyewaanActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +194,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton daftarPenyewaan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -208,8 +216,8 @@ public class DashboardUser_View extends javax.swing.JFrame {
         return daftarPenyewaan;
     }
     
-    public JButton btnLogout() {
-        return btnLogout;
+    public JButton btnLogOut() {
+        return btnLogOut;
     }
     
     public Object namaKolom() {

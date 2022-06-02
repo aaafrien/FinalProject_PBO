@@ -51,7 +51,7 @@ public class DashboardAdmin_Controller {
             public void actionPerformed(ActionEvent arg0) {
                 DaftarSewa_View daftarSewa_View = new DaftarSewa_View();
                 dashboardAdmin_View.dispose();
-                DaftarSewa_Controller daftarSewa_Controller = new DaftarSewa_Controller(rent_Model, daftarSewa_View);
+                DaftarSewaAdmin_Controller daftarSewa_Controller = new DaftarSewaAdmin_Controller(rent_Model, daftarSewa_View);
             }
         });
         
@@ -86,6 +86,19 @@ public class DashboardAdmin_Controller {
                 updateKendaraan_View.fPlat().setText(model.getValueAt(baris, 2).toString());
                 updateKendaraan_View.fHarga().setText(model.getValueAt(baris, 3).toString());
                 UpdateMobil_Controller updateMotor_Controller = new UpdateMobil_Controller(rent_Model, updateKendaraan_View);
+            }
+        });
+        
+        dashboardAdmin_View.btnLogOut().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                int logOut = JOptionPane.showConfirmDialog(dashboardAdmin_View.btnLogOut(),"Are you sure?");
+                
+                if (logOut == JOptionPane.YES_OPTION){
+                    MainMenu_View mainMenu_View = new MainMenu_View();
+                    dashboardAdmin_View.dispose();
+                    MainMenu_Controller mainMenu_Controller = new MainMenu_Controller(rent_Model, mainMenu_View);
+                }
             }
         });
     }

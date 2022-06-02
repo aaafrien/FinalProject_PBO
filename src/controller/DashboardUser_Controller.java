@@ -37,6 +37,15 @@ public class DashboardUser_Controller {
             JOptionPane.showMessageDialog(null, "Tidak ada mobil yang tersedia");
         }
         
+        dashboardUser_View.btnDaftarSewa().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                dashboardUser_View.dispose();
+                DaftarSewa_View daftarSewa_View = new DaftarSewa_View();
+                DaftarSewaUser_Controller daftarSewaUser_Controller = new DaftarSewaUser_Controller(rent_Model, daftarSewa_View);
+            }
+        });
+        
         dashboardUser_View.tableMotor().addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e){
@@ -68,6 +77,19 @@ public class DashboardUser_Controller {
                 detailSewa_View.lbPlat().setText(model.getValueAt(i, 2).toString());
                 detailSewa_View.lbHarga().setText(model.getValueAt(i, 3).toString());
                 SewaMobil_Controller pinjamMobil_Controller = new SewaMobil_Controller(rent_Model, detailSewa_View);
+            }
+        });
+        
+        dashboardUser_View.btnLogOut().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                int logOut = JOptionPane.showConfirmDialog(dashboardUser_View.btnLogOut(),"Are you sure?");
+                
+                if (logOut == JOptionPane.YES_OPTION){
+                    MainMenu_View mainMenu_View = new MainMenu_View();
+                    dashboardUser_View.dispose();
+                    MainMenu_Controller mainMenu_Controller = new MainMenu_Controller(rent_Model, mainMenu_View);
+                }
             }
         });
     }

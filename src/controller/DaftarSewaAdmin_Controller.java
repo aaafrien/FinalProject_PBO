@@ -16,11 +16,11 @@ import view.*;
  *
  * @author user
  */
-public class DaftarSewa_Controller {
+public class DaftarSewaAdmin_Controller {
     Rent_Model rent_Model;
     DaftarSewa_View daftarSewa_View;
 
-    public DaftarSewa_Controller(Rent_Model rent_Model, DaftarSewa_View daftarSewa_View) {
+    public DaftarSewaAdmin_Controller(Rent_Model rent_Model, DaftarSewa_View daftarSewa_View) {
         this.rent_Model = rent_Model;
         this.daftarSewa_View = daftarSewa_View;
         
@@ -31,18 +31,18 @@ public class DaftarSewa_Controller {
             JOptionPane.showMessageDialog(null, "Tidak ada motor yang disewa");
         }
         
-        if(rent_Model.getDataSewaMobil()!=0){
+        if(rent_Model.getDataSewaMobil()!=0) {
             String dataSewaMobil[][] = rent_Model.ReadSewaMobil();
             daftarSewa_View.tableSewaMobil().setModel((new JTable(dataSewaMobil, (Object[]) daftarSewa_View.namaKolomMobil())).getModel());
-        }else {
-            JOptionPane.showMessageDialog(null, "Tidak ada motor yang disewa");
+        } else {
+            JOptionPane.showMessageDialog(null, "Tidak ada mobil yang disewa");
         }
         
         daftarSewa_View.btnKembali().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
                 daftarSewa_View.dispose();
+                DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
                 DashboardAdmin_Controller dashboardAdmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
             }
         });

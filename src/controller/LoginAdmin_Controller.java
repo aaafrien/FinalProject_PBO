@@ -45,18 +45,18 @@ public class LoginAdmin_Controller {
         loginAdmin_View.btCancel().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
+                loginAdmin_View.dispose();
                 MainMenu_View mainMenu_View = new MainMenu_View();
                 MainMenu_Controller mainMenu_Controller = new MainMenu_Controller(rent_Model, mainMenu_View);
-                loginAdmin_View.dispose();
             }
         });
         
         loginAdmin_View.lbLoginUser().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                loginAdmin_View.dispose();
                 LoginUser_View LoginUser_View = new LoginUser_View();
                 LoginUser_Controller loginUser_Controller = new LoginUser_Controller(rent_Model, LoginUser_View);
-                loginAdmin_View.dispose();
             }
         });
     }
