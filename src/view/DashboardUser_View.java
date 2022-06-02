@@ -76,6 +76,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel2.setText("Mobil");
 
+        daftarPenyewaan.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
         daftarPenyewaan.setText("Daftar Penyewaan");
         daftarPenyewaan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +94,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tableMotor);
 
+        btnLogout.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
