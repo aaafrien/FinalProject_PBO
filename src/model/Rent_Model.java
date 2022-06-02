@@ -61,6 +61,36 @@ public class Rent_Model {
         }
     }
     
+    public int getDataSewaMotor(){
+        int jmlData = 0;
+        try{
+            stat = conn.createStatement();
+            String query = "Select * from motor_sewa";
+            ResultSet resultSet = stat.executeQuery(query);
+            while (resultSet.next()){ 
+                jmlData++;
+            }
+            return jmlData;
+        }catch(Exception ex){
+            return 0;
+        }
+    }
+    
+    public int getDataSewaMobil(){
+        int jmlData = 0;
+        try{
+            stat = conn.createStatement();
+            String query = "Select * from mobil_sewa";
+            ResultSet resultSet = stat.executeQuery(query);
+            while (resultSet.next()){ 
+                jmlData++;
+            }
+            return jmlData;
+        }catch(Exception ex){
+            return 0;
+        }
+    }
+    
     public String[][] ReadMotor(){
         try{
             int jmlData = 0;
@@ -82,7 +112,7 @@ public class Rent_Model {
         }
     }
     
-        public String[][] ReadMobil(){
+    public String[][] ReadMobil(){
         try{
             int jmlData = 0;
             String data[][] = new String[getDataMobil()][4]; //baris sesuai banyak data di db, kolom ada 4
@@ -102,7 +132,53 @@ public class Rent_Model {
            return null;
         }
     }
+    
+    public String[][] ReadSewaMotor(){
+        try{
+            int jmlData = 0;
+            String data[][] = new String[getDataSewaMotor()][6]; //baris sesuai banyak data di db, kolom ada 4
+            String query = "SELECT * FROM motor_sewa";
+            ResultSet resultSet = stat.executeQuery(query);
+            
+            while(resultSet.next()){
+                data[jmlData][0] = resultSet.getString("id_sewa");
+                data[jmlData][1] = resultSet.getString("id_motor");
+                data[jmlData][2] = resultSet.getString("merk");
+                data[jmlData][3] = resultSet.getString("plat");
+                data[jmlData][4] = resultSet.getString("tgl_sewa");
+                data[jmlData][5] = resultSet.getString("tgl_kembali");
+                jmlData++;
+            }
+            return data;
+        }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Data masih kosong!");
+           return null;
+        }
+    }
 
+    public String[][] ReadSewaMobil(){
+        try{
+            int jmlData = 0;
+            String data[][] = new String[getDataSewaMobil()][6]; //baris sesuai banyak data di db, kolom ada 4
+            String query = "SELECT * FROM mobil_sewa";
+            ResultSet resultSet = stat.executeQuery(query);
+            
+            while(resultSet.next()){
+                data[jmlData][0] = resultSet.getString("id_sewa");
+                data[jmlData][1] = resultSet.getString("id_mobil");
+                data[jmlData][2] = resultSet.getString("merk");
+                data[jmlData][3] = resultSet.getString("plat");
+                data[jmlData][4] = resultSet.getString("tgl_sewa");
+                data[jmlData][5] = resultSet.getString("tgl_kembali");
+                jmlData++;
+            }
+            return data;
+        }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Data masih kosong!");
+           return null;
+        }
+    }
+    
     public void LoginUser(String uname, String pw) {
         try {
             if(uname.isEmpty() || pw.isEmpty()) {
@@ -254,39 +330,39 @@ public class Rent_Model {
         }
     }
     
-    public void sewaMobil(String merk, String plat, Date tgl_sewa, Date tgl_kembali, String id) {
+    public void sewaMobil(String merk, String plat, String tgl_sewa, String tgl_kembali, String id) {
         try {
-            String query = "INSERT INTO `mobil_sewa` (`merk`, `id_mobil`, `plat`, `tgl_sewa`, `tgl_kembali`) VALUES ('" + merk + "', '" + id + "', '" + plat + "','" + tgl_sewa + "','" + tgl_kembali + "')";
+            String query = "INSERT INTO `mobil_disewa` (`merk`, `plat`, `tanggal_sewa`, `tanggal_kembali`)VALUES ('" + merk + "', '" + plat + "','" + tgl_sewa + "','" + tgl_kembali +"') WHERE `id`=" + id;
             
             stat = conn.createStatement();
             stat.executeUpdate(query);
+            
             JOptionPane.showMessageDialog(null, "Mobil berhasil disewa");
             
-            String delete = "DELETE FROM `mobil` WHERE `id_mobil`=" + id;
+            String delete = "DELETE FROM `mobil` WHERE `id`=" + id;
             
             stat = conn.createStatement();
             stat.executeUpdate(delete);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Mobil gagal disewa");
         }
     }
     
-    public void sewaMotor(String merk, String plat, Date tgl_sewa, Date tgl_kembali, String id) {
+    public void sewaMotor(String merk, String plat, String tgl_sewa, String tgl_kembali, String id) {
         try {
-            String query = "INSERT INTO `motor_sewa` (`merk`, `id_motor`, `plat`, `tgl_sewa`, `tgl_kembali`) VALUES ('" + merk + "', '" + id + "', '" + plat + "','" + tgl_sewa + "','" + tgl_kembali + "')";
+            String query = "INSERT INTO `motor_disewa` (`merk`, `plat`, `tanggal_sewa`, `tanggal_kembali`)VALUES ('" + merk + "', '" + plat + "','" + tgl_sewa + "','" + tgl_kembali +"') WHERE `id`=" + id;
             
             stat = conn.createStatement();
             stat.executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Motor berhasil disewa");
             
-            String delete = "DELETE FROM `motor` WHERE `id_motor`=" + id;
+            String delete = "DELETE FROM `motor` WHERE `id`=" + id;
             
             stat = conn.createStatement();
             stat.executeUpdate(delete);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Motor gagal disewa");
         }
     }
+    
 }
