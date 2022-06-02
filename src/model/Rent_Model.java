@@ -289,5 +289,4 @@ public class Rent_Model {
             JOptionPane.showMessageDialog(null, "Motor gagal disewa");
         }
     }
-    
 }

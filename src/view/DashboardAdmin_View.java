@@ -40,6 +40,7 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         daftarPenyewaan = new javax.swing.JButton();
         dataKendaraan = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +100,13 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,10 +117,12 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(dataKendaraan)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(daftarPenyewaan)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(daftarPenyewaan))
+                            .addComponent(btnLogout))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)))
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -131,7 +141,8 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(daftarPenyewaan)
-                    .addComponent(dataKendaraan))
+                    .addComponent(dataKendaraan)
+                    .addComponent(btnLogout))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -145,6 +156,10 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
     private void dataKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataKendaraanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dataKendaraanActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +198,7 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton daftarPenyewaan;
     private javax.swing.JButton dataKendaraan;
     private javax.swing.JLabel jLabel1;
@@ -201,12 +217,16 @@ public class DashboardAdmin_View extends javax.swing.JFrame {
         return tableMobil;
     }
     
+    public JButton btnDataKendaraan(){
+        return dataKendaraan;
+    }
+    
     public JButton btnDaftarSewa(){
         return daftarPenyewaan;
     }
     
-    public JButton btnDataKendaraan(){
-        return dataKendaraan;
+    public JButton btnLogout() {
+        return btnLogout;
     }
     
     public Object namaKolom() {

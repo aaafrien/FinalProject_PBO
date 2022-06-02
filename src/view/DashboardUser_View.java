@@ -39,6 +39,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
         daftarPenyewaan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMotor = new javax.swing.JTable();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -92,6 +93,13 @@ public class DashboardUser_View extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tableMotor);
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,9 +110,12 @@ public class DashboardUser_View extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(daftarPenyewaan, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(daftarPenyewaan)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLogout))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,7 +130,9 @@ public class DashboardUser_View extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(daftarPenyewaan)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(daftarPenyewaan)
+                    .addComponent(btnLogout))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -129,6 +142,10 @@ public class DashboardUser_View extends javax.swing.JFrame {
     private void daftarPenyewaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarPenyewaanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_daftarPenyewaanActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +184,7 @@ public class DashboardUser_View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton daftarPenyewaan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -186,6 +204,10 @@ public class DashboardUser_View extends javax.swing.JFrame {
     
     public JButton btnDaftarSewa(){
         return daftarPenyewaan;
+    }
+    
+    public JButton btnLogout() {
+        return btnLogout;
     }
     
     public Object namaKolom() {

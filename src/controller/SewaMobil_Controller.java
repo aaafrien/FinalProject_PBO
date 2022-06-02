@@ -11,34 +11,34 @@ import java.sql.Date;
 import javax.swing.JFormattedTextField;
 import model.Rent_Model;
 import view.DashboardUser_View;
-import view.DetailPinjam_View;
+import view.DetailSewa_View;
 
 /**
  *
  * @author Afrien
  */
-public class PinjamMobil_Controller {
+public class SewaMobil_Controller {
     Rent_Model rent_Model;
-    DetailPinjam_View detailPinjam_View;
+    DetailSewa_View detailSewa_View;
 
-    public PinjamMobil_Controller(Rent_Model rent_Model, DetailPinjam_View detailPinjam_View) {
+    public SewaMobil_Controller(Rent_Model rent_Model, DetailSewa_View detailSewa_View) {
         this.rent_Model = rent_Model;
-        this.detailPinjam_View = detailPinjam_View;
+        this.detailSewa_View = detailSewa_View;
         
-        detailPinjam_View.btPinjam().addActionListener(new ActionListener() {
+        detailSewa_View.btPinjam().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                String id = detailPinjam_View.getId();
-                String merk = detailPinjam_View.lbMerk().getText();
+                String id = detailSewa_View.getId();
+                String merk = detailSewa_View.lbMerk().getText();
                 System.out.println(merk);
-                String plat = detailPinjam_View.lbPlat().getText();
+                String plat = detailSewa_View.lbPlat().getText();
                 System.out.println(plat);
-                Date tgl_sewa = detailPinjam_View.tglSewa();
+                Date tgl_sewa = detailSewa_View.tglSewa();
                 System.out.println(tgl_sewa);
-                Date tgl_kembali = detailPinjam_View.tglKembali();
+                Date tgl_kembali = detailSewa_View.tglKembali();
                 System.out.println(tgl_kembali);
                 rent_Model.sewaMobil(merk, plat, tgl_sewa, tgl_kembali, id);
-                detailPinjam_View.dispose();
+                detailSewa_View.dispose();
                 DashboardUser_View dashboardUser_View = new DashboardUser_View();
                 DashboardUser_Controller dashboard_Controller = new DashboardUser_Controller(rent_Model, dashboardUser_View);
             }

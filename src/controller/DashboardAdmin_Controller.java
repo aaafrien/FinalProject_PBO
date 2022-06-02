@@ -18,6 +18,7 @@ import view.*;
 public class DashboardAdmin_Controller {
     Rent_Model rent_Model;
     DashboardAdmin_View dashboardAdmin_View;
+    LoginAdmin_View loginAdmin_View;
 
     public DashboardAdmin_Controller(Rent_Model rent_Model, DashboardAdmin_View dashboardAdmin_View) {
         this.rent_Model = rent_Model;

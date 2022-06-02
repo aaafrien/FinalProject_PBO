@@ -15,11 +15,11 @@ import javax.swing.*;
  *
  * @author Afrien
  */
-public class DetailPinjam_View extends javax.swing.JFrame {
+public class DetailSewa_View extends javax.swing.JFrame {
     String id;
 
     /** Creates new form DetailPinjam_View */
-    public DetailPinjam_View() {
+    public DetailSewa_View() {
         initComponents();
         setVisible(true);
         setTitle("Sewa Kendaraan");
@@ -79,7 +79,7 @@ public class DetailPinjam_View extends javax.swing.JFrame {
         jLabel7.setText("Sewa Kendaraan");
 
         btPinjam.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btPinjam.setText("Pinjam");
+        btPinjam.setText("Sewa");
         btPinjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPinjamActionPerformed(evt);
@@ -235,20 +235,21 @@ public class DetailPinjam_View extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DetailPinjam_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetailSewa_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DetailPinjam_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetailSewa_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DetailPinjam_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetailSewa_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DetailPinjam_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetailSewa_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DetailPinjam_View().setVisible(true);
+                new DetailSewa_View().setVisible(true);
             }
         });
     }

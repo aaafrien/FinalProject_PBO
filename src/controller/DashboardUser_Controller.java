@@ -47,12 +47,12 @@ public class DashboardUser_Controller {
                 String id = model.getValueAt(i, 0).toString();
                 
                 dashboardUser_View.dispose();
-                DetailPinjam_View detailPinjam_View = new DetailPinjam_View();
-                detailPinjam_View.setId(id);
-                detailPinjam_View.lbMerk().setText(model.getValueAt(i, 1).toString());
-                detailPinjam_View.lbPlat().setText(model.getValueAt(i, 2).toString());
-                detailPinjam_View.lbHarga().setText(model.getValueAt(i, 3).toString());
-                PinjamMotor_Controller pinjamMotor_Controller = new PinjamMotor_Controller(rent_Model, detailPinjam_View);
+                DetailSewa_View detailSewa_View = new DetailSewa_View();
+                detailSewa_View.setId(id);
+                detailSewa_View.lbMerk().setText(model.getValueAt(i, 1).toString());
+                detailSewa_View.lbPlat().setText(model.getValueAt(i, 2).toString());
+                detailSewa_View.lbHarga().setText(model.getValueAt(i, 3).toString());
+                SewaMotor_Controller pinjamMotor_Controller = new SewaMotor_Controller(rent_Model, detailSewa_View);
             }
         });
         
@@ -64,12 +64,12 @@ public class DashboardUser_Controller {
                 String id = model.getValueAt(i, 0).toString();
                 
                 dashboardUser_View.dispose();
-                DetailPinjam_View detailPinjam_View = new DetailPinjam_View();
-                detailPinjam_View.setId(id);
-                detailPinjam_View.lbMerk().setText(model.getValueAt(i, 1).toString());
-                detailPinjam_View.lbPlat().setText(model.getValueAt(i, 2).toString());
-                detailPinjam_View.lbHarga().setText(model.getValueAt(i, 3).toString());
-                PinjamMobil_Controller pinjamMobil_Controller = new PinjamMobil_Controller(rent_Model, detailPinjam_View);
+                DetailSewa_View detailSewa_View = new DetailSewa_View();
+                detailSewa_View.setId(id);
+                detailSewa_View.lbMerk().setText(model.getValueAt(i, 1).toString());
+                detailSewa_View.lbPlat().setText(model.getValueAt(i, 2).toString());
+                detailSewa_View.lbHarga().setText(model.getValueAt(i, 3).toString());
+                SewaMobil_Controller pinjamMobil_Controller = new SewaMobil_Controller(rent_Model, detailSewa_View);
             }
         });
     }
