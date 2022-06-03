@@ -41,8 +41,8 @@ public class DaftarSewaAdmin_Controller {
         daftarSewa_View.btnKembali().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                daftarSewa_View.dispose();
                 DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
+                daftarSewa_View.dispose();
                 DashboardAdmin_Controller dashboardAdmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
             }
         });
