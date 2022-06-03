@@ -34,10 +34,10 @@ public class LoginUser_Controller {
                 if(username.isEmpty() || password.isEmpty() || !password.equals(cekpass)) {
                     loginUser_View.dispose();
                     loginUser_View.setVisible(true);
-                } else{
+                }else{
                     loginUser_View.dispose();
-                    DashboardUser_View dashboardUser_View = new DashboardUser_View();
-                    DashboardUser_Controller dashboardUser_Controller = new DashboardUser_Controller(rent_Model, dashboardUser_View);
+                    DashboardUser_View view = new DashboardUser_View();
+                    DashboardUser_Controller dashboardUser_Controller = new DashboardUser_Controller(rent_Model, view);
                 }
             }
         });

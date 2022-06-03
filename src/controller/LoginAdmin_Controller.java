@@ -37,8 +37,8 @@ public class LoginAdmin_Controller {
                 }
                 else{
                     loginAdmin_View.dispose();
-                    DashboardAdmin_View dashboardAdmin_View = new DashboardAdmin_View();
-                    DashboardAdmin_Controller dashboardAmin_Controller = new DashboardAdmin_Controller(rent_Model, dashboardAdmin_View);
+                    DashboardAdmin_View view = new DashboardAdmin_View();
+                    DashboardAdmin_Controller dashboardAmin_Controller = new DashboardAdmin_Controller(rent_Model, view);
                 }
             }
         });
